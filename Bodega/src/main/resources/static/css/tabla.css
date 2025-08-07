@@ -1,0 +1,14 @@
+table, th, td {
+	border: 1px solid;
+	border-collapse: collapse;
+	padding: 5px;
+	text-align: center;
+	font-size: 25px;
+	margin: 25px 300px
+}
+
+.inicio-registo{
+	text-align: center;
+	font-size: 25px;
+	margin: 25px 300px
+}

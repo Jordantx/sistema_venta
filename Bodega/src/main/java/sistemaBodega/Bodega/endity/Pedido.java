@@ -11,13 +11,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 @Table(name="pedido")
 
@@ -34,10 +33,7 @@ public class Pedido implements Serializable{
 	    @Column
 	    private String estado;
 
-	    @ManyToOne
-	    @JoinColumn(name = "id_usuario", nullable = false)
-	    private Usuario usuario;
-
+	  
 	    @OneToMany(mappedBy = "id_detalle_pedido", cascade = CascadeType.ALL)
 	    private List<DetallePedido> detalles = new ArrayList<>();
 	    
@@ -49,7 +45,6 @@ public class Pedido implements Serializable{
 			this.id_pedido = id_pedido;
 			this.fecha = fecha;
 			this.estado = estado;
-			this.usuario = usuario;
 			this.detalles = detalles;
 		}
 
@@ -94,21 +89,8 @@ public class Pedido implements Serializable{
 		public void setEstado(String estado) {
 			this.estado = estado;
 		}
-
-		/**
-		 * @return the usuario
-		 */
-		public Usuario getUsuario() {
-			return usuario;
-		}
-
-		/**
-		 * @param usuario the usuario to set
-		 */
-		public void setUsuario(Usuario usuario) {
-			this.usuario = usuario;
-		}
-
+		
+		
 		/**
 		 * @return the detalles
 		 */

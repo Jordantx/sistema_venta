@@ -27,14 +27,14 @@ public class LoginController {
 		return "login";
 	}
 	
-	
+	// Este método maneja el inicio de sesión del usuario al enviar el formulario desde "login.jsp"
 	@PostMapping("/validar")
     public String validarUsuario(@RequestParam String usuario,
                                  @RequestParam String contrasena,
                                  HttpSession session,
                                  Model model) {
         Usuario user = usuarioRepository.findByUsuario(usuario);
-        
+     // Verifica si el usuario existe,
         if (user != null &&
             user.getContrasena().equals(contrasena) &&
             user.getEstado().equalsIgnoreCase("activo")) {

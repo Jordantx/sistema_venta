@@ -36,10 +36,12 @@ public class MovimientoStock implements Serializable {
     
     @Column
     private String referencia;
-
+    
     @ManyToOne
     @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
+
+   
     
     
     public MovimientoStock() {}
@@ -52,7 +54,6 @@ public class MovimientoStock implements Serializable {
 		this.cantidad = cantidad;
 		this.fecha = fecha;
 		this.referencia = referencia;
-		this.producto = producto;
 	}
 	
 	
@@ -127,19 +128,7 @@ public class MovimientoStock implements Serializable {
 		this.referencia = referencia;
 	}
 
-	/**
-	 * @return the producto
-	 */
-	public Producto getProducto() {
-		return producto;
-	}
 
-	/**
-	 * @param producto the producto to set
-	 */
-	public void setProducto(Producto producto) {
-		this.producto = producto;
-	}
 
 	/**
 	 * @return the serialversionuid

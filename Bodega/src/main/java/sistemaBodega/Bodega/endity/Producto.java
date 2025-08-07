@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -32,31 +34,36 @@ public class Producto implements Serializable{
     @Column
     private Double precio;
 
-    @Column
-    private Integer stock;
+  
 
     @Column
     private String estado;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 
-    // Relación Uno a Muchos con MovimientoStock
-    @OneToMany(mappedBy = "id_registo_stock", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MovimientoStock> movimientos;
+
+    
     
     public Producto() {}
 
-	public Producto(Long id_producto, String nombre, String descripcion, Double precio, Integer stock, String estado,
-			List<MovimientoStock> movimientos) {
+
+
+
+	public Producto(Long id_producto, String nombre, String descripcion, Double precio, String estado,
+			Usuario usuario) {
 		super();
 		this.id_producto = id_producto;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
-		this.stock = stock;
 		this.estado = estado;
-		this.movimientos = movimientos;
+		this.usuario = usuario;
 	}
+
+
+
 
 	/**
 	 * @return the id_producto
@@ -65,12 +72,18 @@ public class Producto implements Serializable{
 		return id_producto;
 	}
 
+
+
+
 	/**
 	 * @param id_producto the id_producto to set
 	 */
 	public void setId_producto(Long id_producto) {
 		this.id_producto = id_producto;
 	}
+
+
+
 
 	/**
 	 * @return the nombre
@@ -79,12 +92,18 @@ public class Producto implements Serializable{
 		return nombre;
 	}
 
+
+
+
 	/**
 	 * @param nombre the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+
+
 
 	/**
 	 * @return the descripcion
@@ -93,12 +112,18 @@ public class Producto implements Serializable{
 		return descripcion;
 	}
 
+
+
+
 	/**
 	 * @param descripcion the descripcion to set
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+
+
 
 	/**
 	 * @return the precio
@@ -107,6 +132,9 @@ public class Producto implements Serializable{
 		return precio;
 	}
 
+
+
+
 	/**
 	 * @param precio the precio to set
 	 */
@@ -114,19 +142,8 @@ public class Producto implements Serializable{
 		this.precio = precio;
 	}
 
-	/**
-	 * @return the stock
-	 */
-	public Integer getStock() {
-		return stock;
-	}
 
-	/**
-	 * @param stock the stock to set
-	 */
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
+
 
 	/**
 	 * @return the estado
@@ -135,6 +152,9 @@ public class Producto implements Serializable{
 		return estado;
 	}
 
+
+
+
 	/**
 	 * @param estado the estado to set
 	 */
@@ -142,19 +162,28 @@ public class Producto implements Serializable{
 		this.estado = estado;
 	}
 
-	/**
-	 * @return the movimientos
-	 */
-	public List<MovimientoStock> getMovimientos() {
-		return movimientos;
-	}
+
+
 
 	/**
-	 * @param movimientos the movimientos to set
+	 * @return the usuario
 	 */
-	public void setMovimientos(List<MovimientoStock> movimientos) {
-		this.movimientos = movimientos;
+	public Usuario getUsuario() {
+		return usuario;
 	}
+
+
+
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
+
 
 	/**
 	 * @return the serialversionuid
@@ -163,6 +192,7 @@ public class Producto implements Serializable{
 		return serialVersionUID;
 	}
 
+	
 	
 
 	

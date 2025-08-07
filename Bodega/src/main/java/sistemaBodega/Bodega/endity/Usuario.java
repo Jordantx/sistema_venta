@@ -22,17 +22,17 @@ public class Usuario implements Serializable{
 		@GeneratedValue(strategy=GenerationType.IDENTITY) 
 		private Integer id_usuario;
 			
-		@Column
+		@Column(nullable = false)
 		private String usuario;
 		
 		
-		@Column
+		@Column(nullable = false)
 		private String contrasena;
 		
-		@Column
+		@Column(nullable = false)
 		private String rol;
 		
-		@Column
+		
 		private String estado;
 		
 		

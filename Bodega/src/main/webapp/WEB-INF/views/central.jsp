@@ -10,21 +10,28 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Central</title>
-		<link rel="stylesheet" href="<c:url value='/css/styles.css'/>">
+		
 		<link rel="stylesheet" href="<c:url value='/css/menu.css'/>">
+		<link rel="stylesheet" href="<c:url value='/css/producto.css'/>">
+		
 	</head>
 	<body>
+		
 		 <div class="nav">
-	         <ul class="menu">
-	            <li class="active">Home</li>
-	            <li class="active">About</li>
-	            <li class="active">Gallery</li>
-	            <li class="active">Contact us</li>
-	         </ul>
-	      </div>
+		 	
+	        <img class="imgLogo" src="img/logo.png" id="miImagen" width="80px" height="80px" >
+	        
+	        	<div class="estiloMenu">
+		        <a class="diseñasMenuLink " href="/bodega/producto/listar" class="">producto</a>
+		        <a class="diseñasMenuLink" href="/bodega/yosoy">quienes somo</a>
+		        <a class="diseñasMenuLink" href="#">coleta </a>
+		        <a class="diseñasMenuLink" href="#">almecn</a>
+		      </div>
+	    </div>
 	      
-		<h2>Bienvenido al sistema central</h2>
-	    <a href="logout">Cerrar sesión</a>
+	     
+		
+	   	
 	    
 	</body>
 </html>
